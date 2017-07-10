@@ -9,6 +9,7 @@ import com.vaadin.navigator.View
 import com.vaadin.navigator.ViewChangeListener
 import com.vaadin.spring.annotation.SpringView
 import com.vaadin.ui.Alignment
+import com.vaadin.ui.Button
 import com.vaadin.ui.themes.ValoTheme
 import org.vaadin.viritin.button.MButton
 import org.vaadin.viritin.fields.MTextField
@@ -31,7 +32,7 @@ class LoginView(val session: Session) : ExtendedCustomComponent(), View {
         verticalLayout {
             withFullHeight().withFullWidth().withStyleName(ValoTheme.PANEL_WELL)
 
-            panel(Alignment.TOP_CENTER) {
+            panel(alignment = Alignment.TOP_CENTER) {
                 withWidth("400px")
 
                 verticalLayout {
@@ -44,8 +45,10 @@ class LoginView(val session: Session) : ExtendedCustomComponent(), View {
 
                         loginField = textField("Username:").withPlaceholder("Display Name").addTextChangeListener { fieldLoginListener(it) }
 
-                        loginButton = button("Enter") { isEnabled = false }.addClickListener { -> login(loginField.value) }
-                                .withClickShortcut(ShortcutAction.KeyCode.ENTER).withStyleName(ValoTheme.BUTTON_PRIMARY)
+                        loginButton = button("Enter") {
+                            isEnabled = false
+                            addClickListener({ _: Button.ClickEvent? -> login(loginField.value) })
+                        }.withClickShortcut(ShortcutAction.KeyCode.ENTER).withStyleName(ValoTheme.BUTTON_PRIMARY)
                     }
                 }
             }

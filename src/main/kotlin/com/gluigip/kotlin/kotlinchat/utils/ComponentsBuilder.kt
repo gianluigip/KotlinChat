@@ -5,6 +5,7 @@ import org.vaadin.viritin.button.MButton
 import org.vaadin.viritin.fields.MTextField
 import org.vaadin.viritin.label.MLabel
 import org.vaadin.viritin.layouts.MFormLayout
+import org.vaadin.viritin.layouts.MHorizontalLayout
 import org.vaadin.viritin.layouts.MPanel
 import org.vaadin.viritin.layouts.MVerticalLayout
 
@@ -22,8 +23,9 @@ fun HasComponents.verticalLayout(alignment: Alignment? = null, init: MVerticalLa
     return align(newComponent(MVerticalLayout(), true, init), alignment)
 }
 
-fun HasComponents.newVerticalLayout(init: MVerticalLayout.() -> Unit): MVerticalLayout {
-    return newComponent(MVerticalLayout(), false, init)
+
+fun HasComponents.horizontalLayout(alignment: Alignment? = null, init: MHorizontalLayout.() -> Unit): MHorizontalLayout {
+    return align(newComponent(MHorizontalLayout(), true, init), alignment)
 }
 
 fun HasComponents.formLayout(alignment: Alignment? = null, init: MFormLayout.() -> Unit): MFormLayout {
@@ -34,16 +36,16 @@ fun HasComponents.newFormLayout(init: MFormLayout.() -> Unit): MFormLayout {
     return newComponent(MFormLayout(), false, init)
 }
 
-fun HasComponents.panel(alignment: Alignment? = null, init: MPanel.() -> Unit): MPanel {
-    return align(newComponent(MPanel(), true, init), alignment)
+fun HasComponents.panel(caption: String? = null, alignment: Alignment? = null, init: MPanel.() -> Unit): MPanel {
+    return align(newComponent(MPanel(caption), true, init), alignment)
 }
 
 fun HasComponents.textField(caption: String? = null, init: MTextField.() -> Unit = {}): MTextField {
     return newComponent(MTextField(caption), true, init)
 }
 
-fun HasComponents.label(caption: String? = null, init: MLabel.() -> Unit = {}): MLabel {
-    return newComponent(MLabel(caption), true, init)
+fun HasComponents.label(caption: String? = null, alignment: Alignment? = null, init: MLabel.() -> Unit = {}): MLabel {
+    return align(newComponent(MLabel(caption), true, init), alignment)
 }
 
 fun HasComponents.button(caption: String, init: MButton.() -> Unit = {}): MButton {
