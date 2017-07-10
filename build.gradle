@@ -1,0 +1,71 @@
+buildscript {
+    ext {
+        kotlinVersion = '1.1.3-2'
+        springBootVersion = '2.0.0.M2'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://maven.vaadin.com/vaadin-addons" }
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+
+ext {
+    vaadinVersion = '8.0.6'
+}
+
+dependencies {
+//	DB
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+
+//	VAADIN
+    compile('com.vaadin:vaadin-spring-boot-starter')
+    compile('com.vaadin:vaadin-push')
+    compile("org.vaadin:viritin:2.0.beta2")
+
+//	SPRING
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile("javax:javaee-api:7.0")
+
+//	KOTLIN
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
+    compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+
+//	TEST
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
+    }
+}
