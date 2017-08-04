@@ -1,5 +1,6 @@
 package com.gluigip.kotlin.kotlinchat.logic
 
+import com.gluigip.kotlin.kotlinchat.datastore.MessageRepository
 import com.gluigip.kotlin.kotlinchat.model.Message
 import javax.enterprise.context.ApplicationScoped
 import javax.inject.Named
@@ -10,13 +11,13 @@ import javax.inject.Named
  */
 @Named
 @ApplicationScoped
-class ChatBroadcaster {
-    private val chat = ArrayList<Message>()
+class ChatBroadcaster(val repository: MessageRepository) {
+
     private val listeners = HashSet<(Message) -> Unit>()
 
     @Synchronized fun registerListener(listener: (Message) -> Unit): List<Message> {
         listeners.add(listener)
-        return chat
+        return repository.retrieveAll(-1)
     }
 
     @Synchronized fun unregisterListener(listener: (Message) -> Unit) {
@@ -24,7 +25,7 @@ class ChatBroadcaster {
     }
 
     @Synchronized fun sendMessage(message: Message) {
-        chat.add(message)
+        repository.save(message)
         listeners.forEach { it.invoke(message) }
     }
 }

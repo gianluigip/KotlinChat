@@ -2,7 +2,6 @@ package com.gluigip.kotlin.kotlinchat.ui
 
 import com.gluigip.kotlin.kotlinchat.logic.Session
 import com.gluigip.kotlin.kotlinchat.ui.view.LOGIN_VIEW_NAME
-import com.vaadin.annotations.PreserveOnRefresh
 import com.vaadin.annotations.Push
 import com.vaadin.annotations.Theme
 import com.vaadin.navigator.View
@@ -22,7 +21,7 @@ import org.vaadin.viritin.layouts.MPanel
 @SpringUI()
 @Theme("valo")
 @SpringViewDisplay
-@PreserveOnRefresh
+//@PreserveOnRefresh
 class MainUI(val session: Session) : UI(), ViewDisplay {
 
     private val main: MPanel = MPanel().withFullHeight().withFullWidth()
