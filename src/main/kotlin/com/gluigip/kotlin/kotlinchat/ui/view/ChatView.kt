@@ -9,7 +9,6 @@ import com.gluigip.kotlin.kotlinchat.utils.verticalLayout
 import com.vaadin.navigator.View
 import com.vaadin.navigator.ViewChangeListener
 import com.vaadin.spring.annotation.SpringView
-import com.vaadin.spring.annotation.UIScope
 import com.vaadin.ui.Alignment
 import com.vaadin.ui.themes.ValoTheme
 
@@ -19,7 +18,6 @@ import com.vaadin.ui.themes.ValoTheme
  */
 const val CHAT_VIEW_NAME = ""
 
-@UIScope
 @SpringView(name = CHAT_VIEW_NAME)
 class ChatView(val chat: ChatComponent, val userSession: Session) : ExtendedCustomComponent(), View {
 

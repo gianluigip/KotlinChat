@@ -39,7 +39,7 @@ repositories {
 
 
 ext {
-    vaadinVersion = '8.0.6'
+    vaadinVersion = '8.1.1'
 }
 
 dependencies {

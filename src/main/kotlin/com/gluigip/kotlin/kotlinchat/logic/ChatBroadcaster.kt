@@ -14,7 +14,7 @@ class ChatBroadcaster {
     private val chat = ArrayList<Message>()
     private val listeners = HashSet<(Message) -> Unit>()
 
-    @Synchronized fun registerListener(listener:(Message) -> Unit): List<Message> {
+    @Synchronized fun registerListener(listener: (Message) -> Unit): List<Message> {
         listeners.add(listener)
         return chat
     }
@@ -25,6 +25,6 @@ class ChatBroadcaster {
 
     @Synchronized fun sendMessage(message: Message) {
         chat.add(message)
-        listeners.forEach { listener -> listener.invoke(message) }
+        listeners.forEach { it.invoke(message) }
     }
 }

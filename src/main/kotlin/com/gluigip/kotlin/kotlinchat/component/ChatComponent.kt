@@ -6,7 +6,7 @@ import com.gluigip.kotlin.kotlinchat.model.Message
 import com.gluigip.kotlin.kotlinchat.utils.*
 import com.vaadin.event.ShortcutAction
 import com.vaadin.shared.ui.ContentMode
-import com.vaadin.spring.annotation.UIScope
+import com.vaadin.spring.annotation.ViewScope
 import com.vaadin.ui.Button
 import com.vaadin.ui.themes.ValoTheme
 import org.vaadin.viritin.fields.MTextField
@@ -21,8 +21,8 @@ import javax.inject.Named
  * Created by gianluigi.pierini on 07/07/2017.
  */
 @Named
-@UIScope
-class ChatComponent(val broadcaster: ChatBroadcaster, val session: Session) : ExtendedCustomComponent() {
+@ViewScope
+open class ChatComponent(val broadcaster: ChatBroadcaster, val session: Session) : ExtendedCustomComponent() {
 
     private val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM, FormatStyle.MEDIUM)
 
