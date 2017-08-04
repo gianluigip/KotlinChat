@@ -1,7 +1,7 @@
 package com.gluigip.kotlin.kotlinchat.ui.view
 
-import com.gluigip.kotlin.kotlinchat.logic.Session
 import com.gluigip.kotlin.kotlinchat.model.User
+import com.gluigip.kotlin.kotlinchat.ui.logic.Session
 import com.gluigip.kotlin.kotlinchat.ui.utils.*
 import com.vaadin.data.HasValue
 import com.vaadin.event.ShortcutAction

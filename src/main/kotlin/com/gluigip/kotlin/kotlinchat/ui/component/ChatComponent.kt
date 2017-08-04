@@ -1,8 +1,8 @@
 package com.gluigip.kotlin.kotlinchat.ui.component
 
 import com.gluigip.kotlin.kotlinchat.logic.ChatBroadcaster
-import com.gluigip.kotlin.kotlinchat.logic.Session
 import com.gluigip.kotlin.kotlinchat.model.Message
+import com.gluigip.kotlin.kotlinchat.ui.logic.Session
 import com.gluigip.kotlin.kotlinchat.ui.utils.*
 import com.vaadin.event.ShortcutAction
 import com.vaadin.shared.ui.ContentMode

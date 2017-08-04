@@ -1,7 +1,6 @@
 package com.gluigip.kotlin.kotlinchat.ui
 
-import com.gluigip.kotlin.kotlinchat.logic.Session
-import com.gluigip.kotlin.kotlinchat.ui.view.LOGIN_VIEW_NAME
+import com.gluigip.kotlin.kotlinchat.ui.logic.LogInNavigator
 import com.vaadin.annotations.Push
 import com.vaadin.annotations.Theme
 import com.vaadin.navigator.View
@@ -21,8 +20,7 @@ import org.vaadin.viritin.layouts.MPanel
 @SpringUI()
 @Theme("valo")
 @SpringViewDisplay
-//@PreserveOnRefresh
-class MainUI(val session: Session) : UI(), ViewDisplay {
+class MainUI(val logInNavigator: LogInNavigator) : UI(), ViewDisplay {
 
     private val main: MPanel = MPanel().withFullHeight().withFullWidth()
 
@@ -32,13 +30,8 @@ class MainUI(val session: Session) : UI(), ViewDisplay {
 
     override fun init(vaadinRequest: VaadinRequest) {
         content = main
-        navigator.addViewChangeListener {
-            if (!session.isLoggedIn() && it.viewName != LOGIN_VIEW_NAME) {
-                navigator.navigateTo(LOGIN_VIEW_NAME)
-                false
-            } else {
-                true
-            }
-        }
+        logInNavigator.registerNavigator(navigator)
     }
+
+
 }

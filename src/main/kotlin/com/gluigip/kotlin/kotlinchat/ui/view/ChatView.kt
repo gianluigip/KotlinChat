@@ -1,7 +1,7 @@
 package com.gluigip.kotlin.kotlinchat.ui.view
 
 import com.gluigip.kotlin.kotlinchat.ui.component.ChatComponent
-import com.gluigip.kotlin.kotlinchat.logic.Session
+import com.gluigip.kotlin.kotlinchat.ui.logic.Session
 import com.gluigip.kotlin.kotlinchat.ui.utils.ExtendedCustomComponent
 import com.gluigip.kotlin.kotlinchat.ui.utils.horizontalLayout
 import com.gluigip.kotlin.kotlinchat.ui.utils.label

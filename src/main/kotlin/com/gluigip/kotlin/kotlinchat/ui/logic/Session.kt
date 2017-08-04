@@ -1,4 +1,4 @@
-package com.gluigip.kotlin.kotlinchat.logic
+package com.gluigip.kotlin.kotlinchat.ui.logic
 
 import com.gluigip.kotlin.kotlinchat.model.User
 import com.vaadin.spring.annotation.UIScope
