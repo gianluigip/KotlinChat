@@ -1,4 +1,4 @@
-package com.gluigip.kotlin.kotlinchat.utils
+package com.gluigip.kotlin.kotlinchat.ui.utils
 
 import com.vaadin.ui.Component
 import com.vaadin.ui.CustomComponent

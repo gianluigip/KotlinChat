@@ -1,11 +1,11 @@
 package com.gluigip.kotlin.kotlinchat.ui.view
 
-import com.gluigip.kotlin.kotlinchat.component.ChatComponent
+import com.gluigip.kotlin.kotlinchat.ui.component.ChatComponent
 import com.gluigip.kotlin.kotlinchat.logic.Session
-import com.gluigip.kotlin.kotlinchat.utils.ExtendedCustomComponent
-import com.gluigip.kotlin.kotlinchat.utils.horizontalLayout
-import com.gluigip.kotlin.kotlinchat.utils.label
-import com.gluigip.kotlin.kotlinchat.utils.verticalLayout
+import com.gluigip.kotlin.kotlinchat.ui.utils.ExtendedCustomComponent
+import com.gluigip.kotlin.kotlinchat.ui.utils.horizontalLayout
+import com.gluigip.kotlin.kotlinchat.ui.utils.label
+import com.gluigip.kotlin.kotlinchat.ui.utils.verticalLayout
 import com.vaadin.navigator.View
 import com.vaadin.navigator.ViewChangeListener
 import com.vaadin.spring.annotation.SpringView
